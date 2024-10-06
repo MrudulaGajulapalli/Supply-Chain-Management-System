@@ -56,7 +56,7 @@ class Warehouse {
     }
 }
 
-class Main{
+public class Main{
 
     public static void main(String[] args) {
         Warehouse warehouse = new Warehouse();
@@ -75,13 +75,14 @@ class Main{
             System.out.println("2. View Order and Total Price");
             System.out.println("3. Checkout");
             System.out.println("4. Exit");
-
+            
+            System.out.print("Enter your choice : ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // consume the newline character
-
+            
             switch (choice) {
                 case 1:
-                    System.out.println("Enter product name to add to order:");
+                    System.out.print("Enter product name to add to order:");
                     String productName = scanner.nextLine();
                     Product selectedProduct = warehouse.getAvailableProducts().stream()
                             .filter(p -> p.getName().equalsIgnoreCase(productName))
@@ -90,9 +91,9 @@ class Main{
 
                     if (selectedProduct != null) {
                         order.addProduct(selectedProduct);
-                        System.out.println("Product added to order successfully.");
+                        System.out.println("\nProduct added to order successfully.");
                     } else {
-                        System.out.println("Product not found in the warehouse.");
+                        System.out.println("\nProduct not found in the warehouse.");
                     }
                     break;
                 case 2:
@@ -101,7 +102,7 @@ class Main{
                     System.out.println("Total Price: $" + order.calculateTotal());
                     break;
                 case 3:
-                    System.out.println("Order placed. Thank you for shopping!");
+                    System.out.println("\nOrder placed. Thank you for shopping!");
                     System.exit(0);
                 case 4:
                     System.exit(0);
